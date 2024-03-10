@@ -30,8 +30,8 @@ if ! docker run -it --net=host --rm --workdir=/home -v $PWD:/home gcc:13.2 gcc -
 fi
 
 # Run the binary
-./"$filename_without_extension"
+docker run -it --net=host --rm --workdir=/home -v $PWD:/home gcc:13.2 ./"$filename_without_extension"
 
 # Delete the binary
-rm -f "$filename_without_extension"
+docker run -it --net=host --rm --workdir=/home -v $PWD:/home gcc:13.2 rm -f "$filename_without_extension"
 
